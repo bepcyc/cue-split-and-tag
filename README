@@ -5,6 +5,10 @@ A simple bash script to split an image file (flac, ape, wav...) and tag the song
 * Usage
   cuesplitandtag.sh <image-file>
 
+* Requirements
+  - shntool and the decoders it uses (mac...)
+  - flac
+
 * Notes
   - Output files are in FLAC.
   - The script was found on Arch Linux forum (can't find the topic anymore though).

@@ -38,7 +38,8 @@ album=`grep -m 1 TITLE *.cue | cut -d\" -f2`
 artist=`grep -m 1 PERFORMER *.cue | cut -d\" -f2`
 
 for file in [0-9]*.wav; do
-    echo "Encoding $file"
+    echo -n "Encoding [$file] --> "
+    echo -n "[$file.flac] " | sed -e  "s/.wav//"
     
     if [[ ${file:0:1} == 0 ]] ; then
         tracknr=${file:1:1}
@@ -47,8 +48,9 @@ for file in [0-9]*.wav; do
     fi
     title=`echo ${file:2} | sed -e "s/.wav$//"`
     
-    nice flac -s -T "artist=$artist" -T "album=$album" -T "title=$title" \
-    -T "tracknumber=$tracknr" "$file" && rm "$file"
+    nice flac -f -s -T "artist=$artist" -T "album=$album" -T "title=$title" \
+    -T "tracknumber=$tracknr" "$file" && rm "$file" && echo -n ": OK"
+    echo
 done
 
 echo
