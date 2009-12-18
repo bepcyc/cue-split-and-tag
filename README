@@ -1,0 +1,10 @@
+cue-split-and-tag
+
+A simple bash script to split an image file (flac, ape, wav...) and tag the songs according to the cue-file.
+
+* Usage
+  cuesplitandtag.sh <image-file>
+
+* Notes
+  - Output files are in FLAC.
+  - The script was found on Arch Linux forum (can't find the topic anymore though).
